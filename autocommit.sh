@@ -68,9 +68,7 @@ push_config() {
 }
 
 git_auth() {
-  ssh-agent -s
-  ssh-add ${ssh_key}
-  ssh -T git@github.com
+  ssh-agent -s && ssh-add ~/.ssh/github && ssh -T git@github.com
 }
 
 grab_version
