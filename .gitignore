@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# klipper
+printer_data/config/.moonraker.conf.bkp
