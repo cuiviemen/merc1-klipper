@@ -60,7 +60,7 @@ push_config() {
   local current_date
 
   cd "${config_folder}" || exit 1
-  git pull origin/${git_branch}
+  git pull --autostash origin/${git_branch}
   git add .
   current_date=$(date +"%Y-%m-%d %T")
   git commit -m "Autocommit from ${current_date}" -m "${m1}" -m "${m2}" -m "${m3}" -m "${m4}"
