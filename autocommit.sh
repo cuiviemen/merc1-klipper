@@ -22,9 +22,6 @@ mainsail_folder=~/mainsail
 ### ssh key associated with your github account
 ssh_key=~/.ssh/github
 
-### the branch you want pull/commit the changes
-git_branch=beacon
-
 #####################################################################
 #####################################################################
 
@@ -60,11 +57,11 @@ push_config() {
   local current_date
 
   cd "${config_folder}" || exit 1
-  git pull --autostash origin/${git_branch}
+  git pull --autostash
   git add .
   current_date=$(date +"%Y-%m-%d %T")
   git commit -m "Autocommit from ${current_date}" -m "${m1}" -m "${m2}" -m "${m3}" -m "${m4}"
-  git push -u origin ${git_branch}
+  git push -u origin
 }
 
 git_auth() {
