@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-scripts=(flash_mcu.sh flash_rpi.sh)
+scripts=(flash_rpi.sh flash_sht36.sh flash_mcu.sh)
+
+pushd ~/klipper
+sudo service klipper stop
+git pull
+popd
 
 for script in "${scripts[@]}"
 do

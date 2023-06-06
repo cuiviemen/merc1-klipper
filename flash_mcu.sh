@@ -4,27 +4,17 @@ config="octopuspro429.config"
 device="/dev/serial/by-id/usb-Klipper_stm32f429xx_210040001450304738313820-if00"
 board="btt-octopus-pro-f429-v1.0"
 
-pushd ~/klipper
+function pause(){
+   while read -r -t 0.001; do :; done # dump the buffer
+ read -n1 -rsp "Powercycle is required to apply the firmware. Press any key to shutdown host or Ctrl+C to exit..."
+}
 
-sudo service klipper stop
-git pull
+pushd ~/klipper
 
 make clean KCONFIG_CONFIG=$config
 make menuconfig KCONFIG_CONFIG=$config
 make KCONFIG_CONFIG=$config
+
 ./scripts/flash-sdcard.sh $device $board
-
-if [ $? -ne 0 ]
-  then
-    echo "Flashing MCU failed"
-    exit $?
-fi
-
-echo "Issuing RESTART on MCU"
-
-sudo service klipper start && sleep 3 && sudo echo RESTART > /tmp/printer
-
-sudo service klipper stop
-./scripts/flash-sdcard.sh -c $device $board && sudo service klipper start && echo "Flashing MCU completed"
-
-popd
+pause
+sudo shutdown -h now

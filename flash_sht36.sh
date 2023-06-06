@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
 
 config="sht36.config"
-canuuid="f79bb3838513"
+canuuid="a06c087b27e4"
 
 pushd ~/klipper
-
-sudo service klipper stop
-git pull
 
 make clean KCONFIG_CONFIG=$config
 make menuconfig KCONFIG_CONFIG=$config
@@ -19,6 +16,6 @@ if [ $? -ne 0 ]
     exit $?
 fi
 
-sudo service klipper start && echo "Flashing SHT36 completed"
+echo "Flashing SHT36 completed"
 
 popd
