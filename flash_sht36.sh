@@ -10,6 +10,8 @@ make menuconfig KCONFIG_CONFIG=$config
 make KCONFIG_CONFIG=$config
 python3 ~/klipper/lib/canboot/flash_can.py -u $canuuid
 
+popd
+
 if [ $? -ne 0 ]
   then
     echo "Flashing SHT36 failed"
@@ -17,5 +19,3 @@ if [ $? -ne 0 ]
 fi
 
 echo "Flashing SHT36 completed"
-
-popd
