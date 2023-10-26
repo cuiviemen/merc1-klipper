@@ -11,7 +11,7 @@ function pause(){
 
 pushd ~/klipper
 
-make clean KCONFIG_CONFIG=$config
+make clean
 make menuconfig KCONFIG_CONFIG=$config
 make KCONFIG_CONFIG=$config
 

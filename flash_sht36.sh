@@ -5,7 +5,7 @@ canuuid="a06c087b27e4"
 
 pushd ~/klipper
 
-make clean KCONFIG_CONFIG=$config
+make clean
 make menuconfig KCONFIG_CONFIG=$config
 make KCONFIG_CONFIG=$config
 python3 ~/klipper/lib/canboot/flash_can.py -u $canuuid
