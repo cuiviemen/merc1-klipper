@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-scripts=(flash_rpi.sh flash_sht36.sh flash_mcu.sh)
+scripts=(flash_rpi.sh flash_ebb36.sh flash_mcu.sh)
 
 pushd ~/klipper
 sudo service klipper stop

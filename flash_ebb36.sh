@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-config="sht36.config"
-canuuid="a06c087b27e4"
+config="ebb36.config"
+canuuid="35b1e3d1fc43"
 
 pushd ~/klipper
 
@@ -14,8 +14,8 @@ popd
 
 if [ $? -ne 0 ]
   then
-    echo "Flashing SHT36 failed"
+    echo "Flashing EBB36 failed"
     exit $?
 fi
 
-echo "Flashing SHT36 completed"
+echo "Flashing EBB36 completed"
