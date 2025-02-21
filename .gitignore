@@ -130,3 +130,5 @@ dmypy.json
 
 # klipper
 printer_data/config/.moonraker.conf.bkp
+printer_data/config/ShakeTune_results/
+printer_data/config/AFC/AFC.var.unit
