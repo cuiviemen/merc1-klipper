@@ -16,5 +16,12 @@ make menuconfig KCONFIG_CONFIG=$config
 make KCONFIG_CONFIG=$config
 
 ./scripts/flash-sdcard.sh $device $board
+if [ $? -ne 0 ]
+    then
+      exit $?
+  fi
+done
 pause
 sudo shutdown -h now
+
+exit $?
